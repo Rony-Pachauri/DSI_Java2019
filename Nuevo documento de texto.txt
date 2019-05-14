@@ -1,0 +1,22 @@
+create database almacen
+use almacen
+create table productos (
+	id int primary key identity,
+	nombre varchar(100) not null,
+	stock int not null
+)
+
+create table ventas(
+	id int primary key identity,
+	id_producto int ,
+	subtotal money not null,
+	cantidad int not null,
+	foreign key (id_producto) references productos(id),
+)
+
+create table historico(
+	fecha date not null,
+	id_producto int not null,
+	descripcion varchar(100) not null,
+	usuario varchar(50) not null
+)
